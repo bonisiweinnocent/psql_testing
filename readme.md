@@ -52,10 +52,18 @@ To create a local postgresql database follow the instructions below.
 > **Note:** only follow the instructions below if you would like to add a local PostgreSQL database instance. You can skip this initially if you are using an elephantsql.com database instance for example.
 
 
-Connect to the database using the postgresql user:
+Connect to the database using the postgresql user
+
+On Ubuntu use this command:
 
 ```
 sudo -u postgres psql;
+```
+
+On Windows use this command:
+
+```
+psql -U postgres
 ```
 
 Once done with that create a database & user:
@@ -69,7 +77,7 @@ grant all privileges on database garment_app to gary;
 Add the following entry to you `.env` file in the root of your project.
 
 ```
-DATABASE_URL=postgres://gary:gar123@localhost:4567/garment_app
+DATABASE_URL=postgres://gary:gar123@localhost:5432/garment_app
 ```
 
 ## SQL refresher
@@ -109,10 +117,9 @@ const rows = await db.many(sql, [param1]);
 db.many(sql, [param1]).then(result => console.log(result));
 ```
 
-Once a database is created click on the database on the Instances screen.
-This will take you to the Details screen - see the url on that page and put it in a `.env` file in the root of your project.
+> **When using elephantsql.com:** Once a database is created click on the database on the Instances screen. This will take you to the Details screen - see the url on that page and put it in a `.env` file in the root of your project.
 
-> ***Note:* you will need to create the `.env` file yourself. `touch .env` will do the trick. Or just create an empty text file and rename it to `.env`
+> ***Also note:* you will need to create the `.env` file yourself. `touch .env` will do the trick. Or just create an empty text file and rename it to `.env`
 
 ```
 DATABASE_URL=<your db url here - without any brackets...>
@@ -122,6 +129,20 @@ Connect to your database using psql in the terminal run this command:
 
 ```
 psql <your db url here>
+```
+
+> **Note:** if you run this script locally be sure to run this with the `gary` user and not the `postgres` user.
+
+Connect to the database using this command:
+
+```
+psql -U gary -d garment_app
+```
+
+Sometimes you need to specify `-h localhost` part like this:
+
+```
+psql -h localhost -U gary  -W -d garment_app
 ```
 
 Create the garment table in the new database using the `\i sql/garment.sql` command in `psql`.
