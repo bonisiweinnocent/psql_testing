@@ -95,7 +95,7 @@ describe('As part of the sql refresh workshop', () => {
 		assert.equal(16, femaleCount);
 	});
 
-	it('you should be group garments by gender and count them', async () => {
+	it('you should be able to group garments by gender and count them', async () => {
 
 		// and below this line for this function will
 	
@@ -104,7 +104,7 @@ describe('As part of the sql refresh workshop', () => {
 
 
 		const result = await db.many(`SELECT COUNT(*),gender FROM garment GROUP BY gender`)
-		console.log(JSON.stringify(result )+ "888888888888");
+		
 		// write your code above this line
 
 		assert.deepStrictEqual( [
