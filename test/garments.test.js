@@ -103,7 +103,7 @@ describe('As part of the sql refresh workshop', () => {
 
 
 
-		const result = await db.many(`SELECT COUNT(*),gender FROM garment GROUP BY gender`)
+		const result = await db.many(`select count(*),gender from garment group by gender`)
 		
 		// write your code above this line
 
