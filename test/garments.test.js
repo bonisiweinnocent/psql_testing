@@ -116,7 +116,7 @@ console.log(result+ 'hhhhhhhhhhhh');
 				count: '4',
 				gender: 'Unisex'
 			}
-		], result)
+		], result.count)
 	});
 
 	it('you should be able to remove all the Unisex garments', async () => {
