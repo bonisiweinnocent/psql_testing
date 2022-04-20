@@ -4,7 +4,8 @@
   "description": "PostgreSQL refresh workshop - postgresql is a modern sql database.",
   "main": "garments.js",
   "directories": {
-    "test": "test"
+    "test": "test",
+    "start": "node index.js"
   },
   "scripts": {
     "test": "mocha"
