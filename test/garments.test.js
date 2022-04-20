@@ -107,18 +107,18 @@ describe('As part of the sql refresh workshop', () => {
 		
 		// write your code above this line
 
-		assert.deepStrictEqual( [
+		assert.deepStrictEqual([
 			{
-				count: '15',
-				gender: 'Male'
+				count: '4',
+				gender: 'Unisex'
 			},
 			{
 				count: '16',
 				gender: 'Female'
 			},
 			{
-				count: '4',
-				gender: 'Unisex'
+				count: '15',
+				gender: 'Male'
 			}
 		], result.count)
 	});
